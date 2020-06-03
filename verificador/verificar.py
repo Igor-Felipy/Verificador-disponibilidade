@@ -5,92 +5,77 @@ def verify(url):
     status = requests.get(url)
     return status.status_code
 
-
-def get_response(status):
-    status = status
-    while True:
-        if status == 100:
-            print('Continue')
-        elif status == 101:
-            print('Switching Protocol')
-        elif status == 102:
-            print('Processing (WebDAV)')
-        elif status == 103:
-            print('Early hints')
-        elif status == 200:
-            print('OK')
-        elif status == 201:
-            print('Created')
-        elif status == 202:
-            print('Accepted')
-        elif status == 203:
-            print('Non-Authoritative Information')
-        elif status == 204:
-            print('No Content')
-        elif status == 205:
-            print('Reset Content')
-        elif status == 206:
-            print('Partitial content')
-        elif status == 207:
-            print('Multi-Status (WebDAV)')
-        elif status == 208:
-            print('Multi-Status (WebDAV)')
-        elif status == 226:
-            print('IM Used (HTTP Delta encoding)')
-        elif status == 300:
-            print('Mutiple Choice')
-        elif status == 301:
-            print('Moved Permanently')
-        elif status == 302:
-            print('Found')
-        elif status == 303:
-            print('See Other')
-        elif status == 304:
-            print('Not Modified')
-        elif status == 305:
-            print('Use Proxy')
-        elif status == 306:
-            print('Unused')
-        elif status == 307:
-            print('Temporary Redirect')
-        elif status == 308:
-            print('Permanent Redirect')
-        elif status == 400:
-            print('Bad request')
-        elif status == 401:
-            print('Unauthorized')
-        elif status == 402:
-            print('Payment Required')
-        elif status == 403:
-            print('Forbidden')
-        elif status == 404:
-            print('Not Found')
-        elif status == 405:
-            print('Method Not Allowed')
-        elif status == 406:
-            print('Not Acceptable')
-        elif status == 407:
-            print('Proxy Authentication')
-        elif status == 408:
-            print('Request Timeout')
-        elif status == 409:
-            print('Conflict')
-        elif status == 410:
-            print('Gone')
-        elif status == 411:
-            print('Length Required')
-        elif status == 412:
-            print('Precondition Failed')
-        elif status == 413:
-            print('Payload Too Large')
-        elif status == 414:
-            print('URI Too Long')
-        elif status == 415:
-            print('Unsupported Media Type')
-        elif status == 416:
-            print('')
-
-
+status_code = {
+    100:'Continue',
+    101:'Switching Protocol',
+    102:'Processing (WebDAV)',
+    103:'Early hints',
+    200:'OK',
+    201:'Created',
+    202:'Accepted',
+    203:'Non-Authoritative Information',
+    204:'No Content',
+    205:'Reset Content',
+    206:'Partitial content',
+    207:'Multi-Status (WebDAV)',
+    208:'Multi-Status (WebDAV)',
+    226:'IM Used (HTTP Delta encoding)',
+    300:'Mutiple Choice',
+    301:'Moved Permanently',
+    302:'Found',
+    303:'See Other',
+    304:'Not Modified',
+    305:'Use Proxy',
+    306:'Unused',
+    307:'Temporary Redirect',
+    308:'Permanent Redirect',
+    400:'Bad request',
+    401:'Unauthorized',
+    402:'Payment Required',
+    403:'Forbidden',
+    404:'Not Found',
+    405:'Method Not Allowed',
+    406:'Not Acceptable',
+    407:'Proxy Authentication',
+    408:'Request Timeout',
+    409:'Conflict',
+    410:'Gone',
+    411:'Length Required',
+    412:'Precondition Failed',
+    413:'Payload Too Large',
+    414:'URI Too Long',
+    415:'Unsupported Media Type',
+    416:'Requested Range Not Satisfiable',
+    417:'Expectation Failed',
+    418:'I\'m a teapot',
+    421:'Misdirected Request',
+    422:'Unprocessable Entity',
+    423:'Locked (WebDAV)',
+    424:'Failed Dependency',
+    425:'Too Early',
+    426:'Upgrade Required',
+    428:'Precondition Required',
+    429:'Too Many Requests',
+    431:'Request Header Fields Too Large',
+    451:'Unavailable For Legal Reasons',
+    500:'Internal Server Error',
+    501:'Not Implemented',
+    502:'Bad Gateway',
+    503:'Service Unavailable',
+    504:'Gateway Timeout',
+    505:'HTTP Version Not Supported',
+    506:'Variant Also Negotiates',
+    507:'Insufficient Storage',
+    508:'Loop Detected (WebDAV)',
+    510:'Not Detected (WebDAV)',
+    511:'Network Authentication Required',
+    'source':'https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status'
+}
 def url_clean():
     url = url
     
+
+
+def get_response(status):
+    status = status
+    print('The server say: ' + status_code[status])
