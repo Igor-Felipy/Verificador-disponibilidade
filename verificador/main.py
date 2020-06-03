@@ -1,4 +1,4 @@
-from verificador import verificar
+import verificar
 
 url = input('qual site verificar? ')
 
