@@ -2,7 +2,8 @@ import requests
 
 def verify(url):
     url = url
-    status = requests.get(url).status_code
+    clean_url = url_clean(url)
+    status = requests.get(clean_url).status_code
     return status
 
 status_code = {
@@ -71,16 +72,16 @@ status_code = {
     511:'Network Authentication Required',
     'source':'https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status'
 }
-def url_clean():
+def url_clean(url):
     url = url
-    if 'http://' in url || 'https://' in url || '://' in url:
+    if 'http://' in url or 'https://' in url or '://' in url:
         nurl = url
         return nurl
     elif 'www' in url:
-        nurl = 'https://' + url
+        nurl = str('https://' + url)
         return nurl
     else:
-        nurl = 'https://www' + url
+        nurl = str('https://www.' + url)
         return nurl
     
     
