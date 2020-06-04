@@ -76,13 +76,16 @@ def verify(url):
 
 
 def url_clean(url):
-    url = url
-    if 'http://' in url or 'https://' in url:
-        nurl = url
-        return nurl
-    else:
-        nurl = str('http://' + url)
-        return nurl
+    try:
+        url = url
+        if 'http://' in url or 'https://' in url:
+            nurl = url
+            return nurl
+        else:
+            nurl = str('http://' + url)
+            return nurl
+    except:
+        print('error')
 
 
 def get_response(status):

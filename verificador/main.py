@@ -9,19 +9,21 @@ while True:
         try:
             url = verify.url_clean(input('Which site to check? '))
             verify.verify(url)
+            print('\n\n')
         except:
             print('Error')
 
 
     elif menu.upper() == 'C':
         url = verify.url_clean(input('Which site to check? '))
+        time = int(input('How often? (seconds)'))
         while True:
             try:
                 verify.verify(url)
             except:
                 print('Error')
                 break
-            sleep(1)
+            sleep(time)
             
 
     elif menu.upper() == 'S':
@@ -29,7 +31,7 @@ while True:
 
 
     elif menu.upper() == 'H':
-        print()
+        print('Consult the documentation in https://github.com/Igor-Felipy/Verificador-disponibilidade')
 
 
     elif menu.upper() == 'Q':
