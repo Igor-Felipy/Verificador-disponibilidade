@@ -2,8 +2,8 @@ import requests
 
 def verify(url):
     url = url
-    status = requests.get(url)
-    return status.status_code
+    status = requests.get(url).status_code
+    return status
 
 status_code = {
     100:'Continue',
@@ -73,9 +73,20 @@ status_code = {
 }
 def url_clean():
     url = url
+    if 'http://' in url || 'https://' in url || '://' in url:
+        nurl = url
+        return nurl
+    elif 'www' in url:
+        nurl = 'https://' + url
+        return nurl
+    else:
+        nurl = 'https://www' + url
+        return nurl
+    
     
 
 
 def get_response(status):
     status = status
     print('The server say: ' + status_code[status])
+    
