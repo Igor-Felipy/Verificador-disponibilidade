@@ -1,8 +1,7 @@
-import verificar
+import verify
 
 try:
-    url = verificar.url_clean(input('qual site verificar? '))
-    verificar.verify(url)
+    url = verify.url_clean(input('qual site verificar? '))
+    verify.verify(url)
 except:
     print('Error')
-    

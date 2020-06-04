@@ -80,11 +80,8 @@ def url_clean(url):
     if 'http://' in url or 'https://' in url:
         nurl = url
         return nurl
-    elif 'www' in url:
-        nurl = str('https://' + url)
-        return nurl
     else:
-        nurl = str('https://www.' + url)
+        nurl = str('http://' + url)
         return nurl
 
 
