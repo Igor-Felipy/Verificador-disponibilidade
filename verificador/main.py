@@ -1,10 +1,8 @@
 import verificar
 
-url = input('qual site verificar? ')
-
-
-
-response = verificar.verify(url)
-verificar.get_response(response)
-
-print(verificar.url_clean(url))
+try:
+    url = verificar.url_clean(input('qual site verificar? '))
+    verificar.verify(url)
+except:
+    print('Error')
+    

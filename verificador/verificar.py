@@ -1,11 +1,5 @@
 import requests
 
-def verify(url):
-    url = url
-    clean_url = url_clean(url)
-    status = requests.get(clean_url).status_code
-    return status
-
 status_code = {
     100:'Continue',
     101:'Switching Protocol',
@@ -72,9 +66,18 @@ status_code = {
     511:'Network Authentication Required',
     'source':'https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status'
 }
+
+
+
+def verify(url):
+    url = url
+    status = requests.get(url).status_code
+    get_response(status)
+
+
 def url_clean(url):
     url = url
-    if 'http://' in url or 'https://' in url or '://' in url:
+    if 'http://' in url or 'https://' in url:
         nurl = url
         return nurl
     elif 'www' in url:
@@ -83,8 +86,6 @@ def url_clean(url):
     else:
         nurl = str('https://www.' + url)
         return nurl
-    
-    
 
 
 def get_response(status):
