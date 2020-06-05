@@ -8,7 +8,7 @@ while True:
     if menu.upper() == 'U':
         try:
             url = verify.url_clean(input('Which site to check? '))
-            verify.verify(url)
+            print(verify.verify(url))
             print('\n\n')
         except:
             print('Error')
@@ -19,7 +19,7 @@ while True:
         time = int(input('How often? (seconds)'))
         while True:
             try:
-                verify.verify(url)
+                print(verify.verify(url))
             except:
                 print('Error')
                 break
@@ -27,7 +27,18 @@ while True:
             
 
     elif menu.upper() == 'S':
-        print()
+        url = verify.url_clean(input('Which site to check? '))
+        time = int(input('How often? (seconds)'))
+        arch = str(input('What do you want to name the file?') + '.txt')
+        while True:
+            try:
+                with open(arch, 'a') as archive:
+                    print(str(verify.verify(url) + '\n'))
+            except:
+                print('Error')
+                break
+                sleep(time)
+                
 
 
     elif menu.upper() == 'H':

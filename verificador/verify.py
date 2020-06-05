@@ -70,9 +70,9 @@ status_code = {
 
 
 def verify(url):
-    url = url
+    url = url_clean(url)
     status = requests.get(url).status_code
-    get_response(status)
+    return get_response(status)
 
 
 def url_clean(url):
@@ -90,5 +90,5 @@ def url_clean(url):
 
 def get_response(status):
     status = status
-    print('The server say: ' + status_code[status])
+    return str('The server say: ' + status_code[status] + f'\t Response type: {status}')
     
