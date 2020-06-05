@@ -31,13 +31,15 @@ while True:
         time = int(input('How often? (seconds)'))
         arch = str(input('What do you want to name the file? ') + '.txt')
         while True:
+            to_write = str(verify.verify(url) + '\n')
             try:
                 w = open(arch, 'a')
-                w.write(str(verify.verify(url) + '\n'))
+                w.write(to_write)
             except:
                 print('Error')
                 break
-                sleep(time)
+            print(to_write)
+            sleep(time)
                 
 
 

@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 status_code = {
     100:'Continue',
@@ -90,5 +91,5 @@ def url_clean(url):
 
 def get_response(status):
     status = status
-    return str('The server say: ' + status_code[status] + f'\t Response type: {status}')
+    return str('The server say: ' + status_code[status] + f'\t Response type: {status}' + '\tDate: ' + str(datetime.datetime.now()))
     
