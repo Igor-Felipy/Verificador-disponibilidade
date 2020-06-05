@@ -29,11 +29,11 @@ while True:
     elif menu.upper() == 'S':
         url = verify.url_clean(input('Which site to check? '))
         time = int(input('How often? (seconds)'))
-        arch = str(input('What do you want to name the file?') + '.txt')
+        arch = str(input('What do you want to name the file? ') + '.txt')
         while True:
             try:
-                with open(arch, 'a') as archive:
-                    print(str(verify.verify(url) + '\n'))
+                w = open(arch, 'a')
+                w.write(str(verify.verify(url) + '\n'))
             except:
                 print('Error')
                 break
